@@ -1,0 +1,2318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chapter 4 – Climate | Handwritten Notes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Patrick+Hand&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --desk-bg: #57606f;
+      --paper: #fcf5e5;
+      --ink-blue: #2f3542;
+      --ink-red: #c0392b;
+      --highlighter-yellow: rgba(255, 242, 0, 0.4);
+      --highlighter-green: rgba(46, 204, 113, 0.3);
+      --highlighter-pink: rgba(255, 105, 180, 0.3);
+      --line-color: #a4b0be;
+      --muted-gray: #a4b0be;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--desk-bg);
+      color: var(--ink-blue);
+      font-family: "Kalam", cursive;
+    }
+
+    a {
+      color: #f1f2f6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #ffeaa7;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: rgba(87, 96, 111, 0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    header .inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    header .title {
+      font-family: "Patrick Hand", cursive;
+      font-size: 1.4rem;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+    }
+
+    header nav {
+      display: flex;
+      gap: 16px;
+      font-size: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    main {
+      padding: 40px 16px;
+    }
+
+    @media (min-width: 768px) {
+      header .title {
+        font-size: 1.7rem;
+      }
+
+      header nav {
+        font-size: 0.95rem;
+      }
+
+      main {
+        padding: 40px 32px 60px 32px;
+      }
+    }
+
+    .page {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto 40px auto;
+      padding: 40px 36px;
+      background-color: var(--paper);
+      color: var(--ink-blue);
+      border-radius: 10px;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
+
+      /* Single horizontal ruled lines + subtle vintage texture */
+      background-image:
+        repeating-linear-gradient(
+          to bottom,
+          transparent,
+          transparent 26px,
+          var(--line-color) 27px
+        ),
+        radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.5) 0, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.08) 0, transparent 55%);
+      background-blend-mode: normal, soft-light, multiply;
+    }
+
+    .page-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page p,
+    .page li {
+      line-height: 1.7;
+      font-size: 0.98rem;
+    }
+
+    @media (min-width: 768px) {
+      .page p,
+      .page li {
+        font-size: 1rem;
+      }
+    }
+
+    .heading-main {
+      font-family: "Patrick Hand", cursive;
+      font-size: 2rem;
+      margin: 0 0 0.75rem 0;
+      color: var(--ink-red);
+      transform: rotate(-0.8deg);
+    }
+
+    @media (min-width: 768px) {
+      .heading-main {
+        font-size: 2.4rem;
+      }
+    }
+
+    .heading-sub {
+      display: inline-block;
+      font-family: "Patrick Hand", cursive;
+      font-size: 1.4rem;
+      margin: 1.5rem 0 0.4rem 0;
+      color: var(--ink-red);
+      padding-bottom: 0.1rem;
+      border-bottom: 2px dashed rgba(192, 57, 43, 0.7);
+    }
+
+    .heading-mini {
+      display: inline-block;
+      font-family: "Patrick Hand", cursive;
+      font-size: 1.15rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.3rem;
+      color: var(--ink-red);
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-underline-offset: 4px;
+    }
+
+    .page strong {
+      background: var(--highlighter-yellow);
+      padding: 0 0.12rem;
+      border-radius: 3px;
+      box-decoration-break: clone;
+    }
+
+    .hl-green {
+      background: var(--highlighter-green);
+      padding: 0 0.1rem;
+      border-radius: 3px;
+      box-decoration-break: clone;
+    }
+
+    .hl-pink {
+      background: var(--highlighter-pink);
+      padding: 0 0.1rem;
+      border-radius: 3px;
+      box-decoration-break: clone;
+    }
+
+    ul.red-bullets {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.4rem;
+    }
+
+    ul.red-bullets li {
+      margin-bottom: 0.2rem;
+    }
+
+    ul.red-bullets li::marker {
+      color: var(--ink-red);
+    }
+
+    ol.decimal-list {
+      list-style-type: decimal;
+      padding-left: 1.4rem;
+      margin-top: 0.4rem;
+    }
+
+    ol.decimal-list li {
+      margin-bottom: 0.2rem;
+    }
+
+    .table-hand {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.7rem 0 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    .table-hand th,
+    .table-hand td {
+      border: 1px dashed rgba(47, 53, 66, 0.6);
+      padding: 0.45rem 0.6rem;
+      vertical-align: top;
+    }
+
+    .table-hand th {
+      background: rgba(192, 57, 43, 0.06);
+      font-family: "Patrick Hand", cursive;
+    }
+
+    .hand-box {
+      border: 2px solid rgba(47, 53, 66, 0.9);
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+      padding: 1rem 1.25rem;
+      background: rgba(252, 245, 229, 0.96);
+      box-shadow: 3px 4px 0 rgba(47, 53, 66, 0.5);
+    }
+
+    img.map-img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px dashed rgba(47, 53, 66, 0.4);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      margin-top: 0.6rem;
+    }
+
+    details.cheat {
+      margin-bottom: 0.6rem;
+    }
+
+    details.cheat summary {
+      cursor: pointer;
+      list-style: none;
+      font-family: "Patrick Hand", cursive;
+      font-size: 1.05rem;
+      color: var(--ink-red);
+    }
+
+    details.cheat summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.cheat summary::before {
+      content: "▸ ";
+      color: var(--ink-red);
+    }
+
+    details.cheat[open] summary::before {
+      content: "▾ ";
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="inner">
+    <div class="title">Chapter 4 · Climate – Handwritten Notes</div>
+    <nav>
+      <a href="#basic">Basics</a>
+      <a href="#factors">Factors</a>
+      <a href="#seasons">Seasons</a>
+      <a href="#rainfall">Rainfall</a>
+      <a href="#global-warming">Global Warming</a>
+      <a href="#cheatsheet">Cheat Sheet</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- PAGE 1 – BASIC CONCEPTS -->
+  <section id="basic" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">Chapter 4: Climate – Comprehensive Handwritten Notes</h1>
+
+      <p style="margin-bottom: 0.8rem;">
+        Vintage‑style, handwritten notes for <strong>Chapter 4: Climate</strong>.
+        Scroll like a PDF; every fact, figure and idea from the chapter is captured.
+      </p>
+
+      <h2 class="heading-sub">📌 Basic Concepts</h2>
+
+      <h3 class="heading-mini" style="margin-top: 1.2rem;">Weather vs Climate</h3>
+      <ul class="red-bullets">
+        <li>
+          <strong>Weather</strong> → Momentary state of the atmosphere
+          (changes within a day or a week).
+        </li>
+        <li>
+          <strong>Climate</strong> → Average of weather conditions over a longer
+          period of time (changes usually noted after <strong>50 years or more</strong>).
+        </li>
+        <li>
+          <strong>Elements of weather</strong> → Temperature, pressure, wind direction
+          and velocity, humidity and precipitation.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Monsoon</h3>
+      <ul class="red-bullets">
+        <li>
+          The word <strong>“Monsoon”</strong> refers to a climate associated with
+          <span class="hl-green">seasonal reversal in the direction of winds</span>.
+        </li>
+        <li>
+          India has a <strong>hot monsoonal climate</strong>, typical of South and
+          Southeast Asia.
+        </li>
+      </ul>
+
+      <h2 class="heading-sub">📌 Unity and Diversity in the Monsoon Climate</h2>
+
+      <h3 class="heading-mini" style="margin-top: 0.9rem;">Unity</h3>
+      <ul class="red-bullets">
+        <li>
+          The monsoon regime emphasises the <strong>unity of India</strong>
+          with the rest of the Southeast Asian region.
+        </li>
+        <li>
+          Despite regional variations, India’s climate is
+          <strong>monsoonal in rhythm and character</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Diversity (Regional Variations)</h3>
+      <p>
+        Regional diversities are expressed as
+        <strong>sub‑types of monsoon climate</strong> in terms of:
+      </p>
+      <ul class="red-bullets">
+        <li>Pattern of winds</li>
+        <li>Temperature and rainfall</li>
+        <li>Rhythm of seasons</li>
+        <li>Degree of wetness or dryness</li>
+      </ul>
+
+      <h3 class="heading-mini">Temperature Variations</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Example</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Summer extreme</td>
+          <td>
+            Mercury touches <strong>55°C</strong> in
+            <strong>western Rajasthan</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Winter extreme</td>
+          <td>Drops to <strong>−45°C</strong> around <strong>Leh</strong>.</td>
+        </tr>
+        <tr>
+          <td>Same day contrast</td>
+          <td>
+            <strong>Churu (Rajasthan)</strong> → over <strong>50°C</strong> vs
+            <strong>Tawang (Arunachal Pradesh)</strong> → about <strong>19°C</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Same night contrast</td>
+          <td>
+            <strong>Drass (Ladakh)</strong> → about <strong>−45°C</strong> vs
+            <strong>Thiruvananthapuram / Chennai</strong> → <strong>20–22°C</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Diurnal range (low)</td>
+          <td>
+            <strong>Kerala</strong> and <strong>Andaman Islands</strong> →
+            difference of only <strong>7–8°C</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Diurnal range (high)</td>
+          <td>
+            <strong>Thar Desert</strong> → day about <strong>50°C</strong> while
+            night may drop by <strong>15–20°C</strong>.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-mini">Precipitation Variations</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Type variation</td>
+          <td>
+            <strong>Snowfall</strong> in the Himalayas,
+            <strong>rain</strong> over the rest of the country.
+          </td>
+        </tr>
+        <tr>
+          <td>Highest rainfall</td>
+          <td>
+            <strong>Cherrapunji and Mawsynram</strong> (Khasi Hills, Meghalaya)
+            → <strong>over 1,080 cm/year</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Lowest rainfall</td>
+          <td>
+            <strong>Jaisalmer (Rajasthan)</strong> → rarely more than
+            <strong>9 cm/year</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Extreme comparison</td>
+          <td>
+            <strong>Tura (Garo Hills)</strong> receives in
+            <strong>one day</strong> as much as <strong>10 years’</strong>
+            rainfall at Jaisalmer.
+          </td>
+        </tr>
+        <tr>
+          <td>Annual precipitation range</td>
+          <td>
+            Less than <strong>10 cm</strong> in NW Himalayas &amp; western
+            deserts; exceeds <strong>400 cm</strong> in parts of Meghalaya.
+          </td>
+        </tr>
+        <tr>
+          <td>Seasonal contrast</td>
+          <td>
+            <strong>Ganga delta &amp; Odisha coast</strong> → storms every
+            3rd–5th day in July–August; <strong>Coromandal coast</strong> →
+            generally dry.
+          </td>
+        </tr>
+        <tr>
+          <td>Timing variation</td>
+          <td>
+            Most of India → rainfall mainly in <strong>June–September</strong>;
+            <strong>Tamil Nadu coast</strong> → rains at the
+            <strong>beginning of winter</strong>.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE 2 – FACTORS DETERMINING CLIMATE -->
+  <section id="factors" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Factors Determining the Climate of India</h1>
+
+      <h3 class="heading-mini">1. Latitude</h3>
+      <ul class="red-bullets">
+        <li>
+          The <strong>Tropic of Cancer</strong> passes through central India in an
+          east–west direction.
+        </li>
+        <li>
+          <strong>North of the Tropic of Cancer</strong> → Sub‑tropical /
+          temperate zone → <span class="hl-green">extreme climate</span> with
+          high daily and annual range of temperature.
+        </li>
+        <li>
+          <strong>South of the Tropic of Cancer</strong> → Tropical zone, nearer
+          the equator → <strong>high temperatures throughout the year</strong>
+          with small daily and annual range.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">2. The Himalayan Mountains</h3>
+      <ul class="red-bullets">
+        <li>Act as an effective <strong>climatic divide</strong>.</li>
+        <li>
+          Provide an <strong>invincible shield</strong> against cold northern
+          winds originating near the Arctic Circle and blowing across Central and
+          Eastern Asia.
+        </li>
+        <li>
+          <strong>Trap the monsoon winds</strong> and force them to shed most of
+          their moisture within the Indian subcontinent.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">3. Distribution of Land and Water</h3>
+      <ul class="red-bullets">
+        <li>
+          India is flanked by the <strong>Indian Ocean</strong> on three sides
+          and a continuous <strong>mountain wall</strong> to the north.
+        </li>
+        <li>
+          Water bodies heat up and cool down more <strong>slowly</strong> than
+          land.
+        </li>
+        <li>
+          This causes <strong>differential heating</strong> of land and sea,
+          creating different pressure zones in different seasons and leading to
+          <strong>reversal of monsoon winds</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">4. Distance from the Sea</h3>
+      <ul class="red-bullets">
+        <li>
+          India’s long coastline ensures that coastal areas have an
+          <strong>equable climate</strong>.
+        </li>
+        <li>
+          Interior locations far from the sea experience
+          <strong>extremes of climate</strong>.
+        </li>
+        <li>
+          <span class="hl-green">Examples:</span> Mumbai and the Konkan coast
+          hardly feel extremes; Delhi, Kanpur and Amritsar face sharp seasonal
+          contrasts.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">5. Altitude</h3>
+      <ul class="red-bullets">
+        <li>Temperature <strong>decreases with height</strong>.</li>
+        <li>
+          Thin air at high altitudes → <strong>cooler mountains</strong> than
+          plains.
+        </li>
+        <li>
+          <span class="hl-green">Example:</span> Agra and Darjiling lie on
+          nearly the same latitude, but in January
+          <strong>Agra: 16°C</strong>; <strong>Darjiling: 4°C</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">6. Relief</h3>
+      <p>
+        Relief affects temperature, air pressure, direction and speed of wind, and
+        amount &amp; distribution of rainfall.
+      </p>
+      <ul class="red-bullets">
+        <li>
+          <strong>Windward sides</strong> of Western Ghats and Assam receive
+          <strong>heavy rainfall</strong> (June–September).
+        </li>
+        <li>
+          The <strong>southern plateau</strong> remains comparatively
+          <strong>dry</strong> due to its leeward position with respect to the
+          Western Ghats.
+        </li>
+      </ul>
+
+      <h2 class="heading-sub">📌 The Nature of Indian Monsoon</h2>
+      <p>
+        The monsoon is a familiar but still <strong>not fully understood</strong>
+        climatic phenomenon. No single theory explains it completely. A real
+        breakthrough came when the monsoon was studied on a
+        <strong>global</strong> rather than purely regional scale.
+      </p>
+
+      <div class="hand-box" style="margin-top: 0.8rem;">
+        <p style="font-family: 'Patrick Hand', cursive; font-size: 1.1rem; color: var(--ink-red); margin: 0 0 0.3rem 0;">
+          Two important aspects:
+        </p>
+        <ul class="red-bullets" style="margin-top: 0;">
+          <li>The <strong>onset</strong> of the monsoon</li>
+          <li>The <strong>break</strong> in the monsoon</li>
+        </ul>
+      </div>
+
+      <h2 class="heading-sub">📌 Inter Tropical Convergence Zone (ITCZ)</h2>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Definition</td>
+          <td>
+            A <strong>low‑pressure zone</strong> located near the equator where
+            trade winds converge and air tends to ascend.
+          </td>
+        </tr>
+        <tr>
+          <td>July position</td>
+          <td>
+            Around <strong>20°–25°N</strong> (over the Gangetic plain),
+            called the <span class="hl-green">monsoon trough</span>.
+          </td>
+        </tr>
+        <tr>
+          <td>Function</td>
+          <td>
+            Encourages development of a <strong>thermal low</strong> over north
+            and northwest India.
+          </td>
+        </tr>
+        <tr>
+          <td>Mechanism</td>
+          <td>
+            With the northward shift of ITCZ, southeast trade winds of the
+            southern hemisphere cross the equator between
+            <strong>40° and 60°E</strong>, get deflected due to
+            <strong>Coriolis force</strong>, and blow as the
+            <strong>southwest monsoon</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Winter</td>
+          <td>
+            ITCZ shifts <strong>southward</strong> → winds reverse from
+            northeast towards south and southwest →
+            <strong>northeast monsoons</strong>.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE 3 – ONSET, EL-NIÑO, BREAK -->
+  <section id="monsoon-nature" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Onset of the Monsoon &amp; El‑Niño</h1>
+
+      <h3 class="heading-mini">Onset of the Monsoon – 19th Century Mechanism</h3>
+      <ol class="decimal-list">
+        <li>
+          <strong>Differential heating</strong> of land and sea during summer
+          sets the stage.
+        </li>
+        <li>
+          In <strong>April–May</strong>, the sun shines vertically over the
+          <strong>Tropic of Cancer</strong>.
+        </li>
+        <li>
+          The large landmass to the north of the Indian Ocean becomes
+          <strong>intensely heated</strong>.
+        </li>
+        <li>
+          A cell of <strong>intense low pressure</strong> develops over the
+          northwestern part of the subcontinent.
+        </li>
+        <li>
+          Over the relatively cooler Indian Ocean,
+          <strong>high pressure</strong> persists.
+        </li>
+        <li>
+          The low‑pressure cell attracts <strong>southeast trades</strong> across
+          the equator.
+        </li>
+        <li>
+          These conditions favour the <strong>northward shift of ITCZ</strong>.
+        </li>
+        <li>
+          The <strong>southwest monsoon</strong> is thus seen as a continuation
+          of the southeast trades deflected towards the Indian subcontinent after
+          crossing the equator.
+        </li>
+        <li>
+          These winds cross the equator between
+          <strong>40°E and 60°E longitudes</strong>.
+        </li>
+      </ol>
+
+      <h3 class="heading-mini">Role of Jet Streams</h3>
+      <ul class="red-bullets">
+        <li>
+          The shift of ITCZ is associated with the
+          <strong>withdrawal of the westerly jet stream</strong> from its
+          position south of the Himalayas over the north Indian plain.
+        </li>
+        <li>
+          An <strong>easterly jet stream</strong> sets in along about
+          <strong>15°N latitude</strong> only after the westerly jet withdraws.
+        </li>
+        <li>
+          The easterly jet stream is mainly responsible for the
+          <span class="hl-pink">burst of monsoon</span> over India.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Entry of Monsoon into India</h3>
+      <ul class="red-bullets">
+        <li>
+          SW monsoon sets in over the <strong>Kerala coast</strong> by
+          <strong>1st June</strong>.
+        </li>
+        <li>
+          It advances rapidly to reach <strong>Mumbai and Kolkata</strong>
+          between <strong>10th and 13th June</strong>.
+        </li>
+        <li>
+          By <strong>mid‑July</strong>, it covers the
+          <strong>entire subcontinent</strong>.
+        </li>
+      </ul>
+
+      <h2 class="heading-sub">📌 El‑Niño and the Indian Monsoon</h2>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Definition</td>
+          <td>
+            Complex weather system appearing once every
+            <strong>3–7 years</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Effects</td>
+          <td>
+            Brings <strong>droughts, floods</strong> and weather extremes to
+            many parts of the world.
+          </td>
+        </tr>
+        <tr>
+          <td>Mechanism</td>
+          <td>
+            Warm currents appear off the <strong>coast of Peru</strong> in the
+            eastern Pacific, an extension of warm equatorial current temporarily
+            replacing the cold <strong>Peruvian (Humboldt) current</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Temperature effect</td>
+          <td>
+            Increases water temperature off Peru by about <strong>10°C</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Results</td>
+          <td>
+            (i) Distortion of equatorial atmospheric circulation
+            (ii) Irregularities in evaporation of seawater
+            (iii) Reduction in plankton → decline in fish.
+          </td>
+        </tr>
+        <tr>
+          <td>Name meaning</td>
+          <td>
+            <strong>“El‑Niño”</strong> means <strong>Child Christ</strong> –
+            it appears around <strong>Christmas</strong> (December), which is
+            summer in Peru.
+          </td>
+        </tr>
+        <tr>
+          <td>Use in India</td>
+          <td>
+            Employed for <strong>forecasting long‑range monsoon rainfall</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Example</td>
+          <td>
+            <strong>1990–91</strong> wild El‑Niño event → onset of SW monsoon
+            delayed <strong>5–12 days</strong> over most parts of India.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h2 class="heading-sub">📌 Break in the Monsoon</h2>
+      <p>
+        During the SW monsoon, if after a few days of rain the rain
+        <strong>fails for one or more weeks</strong>, it is called a
+        <span class="hl-pink">break in the monsoon</span>. Such dry spells are
+        quite common.
+      </p>
+      <h3 class="heading-mini">Causes in Different Regions</h3>
+      <ul class="red-bullets">
+        <li>
+          <strong>Northern India</strong> → Breaks occur when rain‑bearing storms
+          are <strong>not frequent</strong> along the monsoon trough/ITCZ.
+        </li>
+        <li>
+          <strong>West Coast</strong> → Dry spells occur when winds blow
+          <strong>parallel to the coast</strong>, preventing uplift.
+        </li>
+      </ul>
+
+      <h2 class="heading-sub">📌 Understanding the Monsoon (Southern Oscillation)</h2>
+      <p>
+        The intensity of SW monsoon winds is related to the
+        <strong>Southern Oscillation</strong>, measured by the difference in
+        air pressure between:
+      </p>
+      <ul class="red-bullets">
+        <li>
+          <strong>Tahiti</strong> (about 20°S, 140°W) in French Polynesia,
+          eastern Pacific, and
+        </li>
+        <li>
+          <strong>Port Darwin</strong> (12°30′S, 131°E) in northern Australia.
+        </li>
+      </ul>
+      <p>
+        The <strong>Indian Meteorological Department (IMD)</strong> uses
+        <strong>16 indicators</strong> to forecast monsoon behaviour.
+      </p>
+
+      <h2 class="heading-sub">📌 Rhythm of Seasons</h2>
+      <p>
+        Indian meteorologists recognise <strong>four seasons</strong>:
+      </p>
+      <ol class="decimal-list">
+        <li>The Cold Weather Season</li>
+        <li>The Hot Weather Season</li>
+        <li>The Southwest Monsoon Season</li>
+        <li>The Retreating Monsoon Season</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PAGE 4 – COLD WEATHER SEASON -->
+  <section id="seasons" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Season 1: The Cold Weather Season</h1>
+
+      <h3 class="heading-mini">Temperature</h3>
+      <ul class="red-bullets">
+        <li>
+          Sets in by <strong>mid‑November</strong> in northern India.
+        </li>
+        <li>
+          <strong>December and January</strong> are the coldest months in the
+          northern plains.
+        </li>
+        <li>
+          Mean daily temperature is generally below <strong>21°C</strong> over
+          most of northern India.
+        </li>
+        <li>
+          Night temperature may fall <strong>below freezing</strong> in Punjab
+          and Rajasthan.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Three Reasons for Excessive Cold in North India</h3>
+      <ol class="decimal-list">
+        <li>
+          Punjab, Haryana and Rajasthan are far from the moderating influence
+          of the sea → <strong>continental climate</strong>.
+        </li>
+        <li>
+          <strong>Snowfall in the nearby Himalayas</strong> intensifies cold
+          waves.
+        </li>
+        <li>
+          Around <strong>February</strong>, cold winds from the
+          <strong>Caspian Sea and Turkmenistan</strong> bring cold wave, frost
+          and fog over northwestern India.
+        </li>
+      </ol>
+
+      <h3 class="heading-mini">Peninsular India</h3>
+      <ul class="red-bullets">
+        <li>
+          Experiences <strong>no well‑defined cold season</strong>.
+        </li>
+        <li>
+          Little seasonal change in coastal temperature due to
+          <strong>maritime influence</strong> and proximity to the equator.
+        </li>
+        <li>
+          Example: <strong>Thiruvananthapuram</strong> – January mean max:
+          <strong>21°C</strong>; June: <strong>29.5°C</strong>.
+        </li>
+        <li>
+          Hills of the Western Ghats have comparatively lower temperatures.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Pressure and Winds</h3>
+      <ul class="red-bullets">
+        <li>
+          By late December (~<strong>22nd December</strong>), the sun is overhead
+          the <strong>Tropic of Capricorn</strong>.
+        </li>
+        <li>
+          Weather over northern plains:
+          <strong>feeble high pressure</strong>.
+        </li>
+        <li>
+          Air pressure is slightly <strong>lower</strong> over south India.
+        </li>
+        <li>
+          Isobars: about <strong>1019 mb</strong> over NW India and
+          <strong>1013 mb</strong> over far south.
+        </li>
+        <li>
+          Winds blow from the <strong>northwestern high</strong> towards the
+          <strong>low pressure over the Indian Ocean</strong>.
+        </li>
+        <li>
+          Due to weak pressure gradient, winds are light (velocity
+          <strong>3–5 km/hour</strong>).
+        </li>
+        <li>
+          Direction:
+          <ul class="red-bullets">
+            <li>Westerly or north‑westerly down the Ganga valley,</li>
+            <li>Northerly in the Ganga–Brahmaputra delta,</li>
+            <li>
+              North‑easterly over Bay of Bengal, uninfluenced by topography.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Winter Weather Disturbances</h3>
+      <ul class="red-bullets">
+        <li>
+          Pleasant winter weather is periodically disturbed by
+          <strong>shallow cyclonic depressions</strong>.
+        </li>
+        <li>
+          Origin: <strong>East Mediterranean Sea</strong>.
+        </li>
+        <li>
+          Path: move eastwards across West Asia, Iran, Afghanistan and Pakistan
+          to reach NW India.
+        </li>
+        <li>
+          Gain moisture from <strong>Caspian Sea</strong> and
+          <strong>Persian Gulf</strong>; steered by
+          <strong>westerly jet streams</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Rainfall in the Cold Weather Season</h3>
+      <p>
+        Winter monsoon winds generally <strong>do not cause rainfall</strong> as
+        they move from land to sea, carry little humidity and are associated with
+        anti‑cyclonic circulation.
+      </p>
+
+      <h3 class="heading-mini">Important Exceptions</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Region</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>NW India</td>
+          <td>
+            Weak temperate cyclones from Mediterranean bring rainfall to
+            <strong>Punjab, Haryana, Delhi, western UP</strong>; meagre but vital
+            for <strong>rabi crops</strong>. Also snowfall in lower Himalayas
+            sustaining rivers; precipitation decreases west → east in plains and
+            north → south in mountains. Delhi average winter rainfall ≈
+            <strong>53 mm</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Punjab &amp; Bihar</td>
+          <td>
+            Receive about <strong>25 mm</strong> and <strong>18 mm</strong> rain
+            respectively.
+          </td>
+        </tr>
+        <tr>
+          <td>Central India</td>
+          <td>
+            Central India and northern parts of southern peninsula get
+            <strong>occasional winter rainfall</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>NE India</td>
+          <td>
+            <strong>Arunachal Pradesh &amp; Assam</strong> →
+            <strong>25–50 mm</strong> rain during winter.
+          </td>
+        </tr>
+        <tr>
+          <td>Tamil Nadu coast</td>
+          <td>
+            In <strong>October–November</strong>, the NE monsoon crosses the Bay
+            of Bengal, gathers moisture and brings
+            <strong>torrential rainfall</strong> over Tamil Nadu coast, southern
+            Andhra Pradesh, SE Karnataka and SE Kerala.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE 5 – HOT WEATHER SEASON -->
+  <section class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Season 2: The Hot Weather Season</h1>
+
+      <h3 class="heading-mini">Temperature</h3>
+      <ul class="red-bullets">
+        <li>
+          From <strong>March</strong>, the sun shifts towards the Tropic of Cancer
+          and temperatures rise over north India.
+        </li>
+        <li>
+          <strong>April, May and June</strong> are peak summer months in north
+          India with most places between <strong>30–32°C</strong>.
+        </li>
+      </ul>
+
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Month</th>
+          <th>Temperature Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>March</td>
+          <td>
+            Highest day temperature around <strong>38°C</strong> in the
+            <strong>Deccan Plateau</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>April</td>
+          <td>
+            Temperatures of <strong>38–43°C</strong> in
+            <strong>Gujarat</strong> and <strong>Madhya Pradesh</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>May</td>
+          <td>
+            Heat belt shifts north; in <strong>NW India</strong>, readings of
+            <strong>48°C</strong> are not uncommon.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-mini">South India</h3>
+      <ul class="red-bullets">
+        <li>
+          Hot weather is <strong>mild</strong> compared to north India.
+        </li>
+        <li>
+          Peninsular position and oceanic influence keep temperatures
+          <strong>lower</strong>.
+        </li>
+        <li>
+          Temperatures generally between <strong>26–32°C</strong>; Western Ghats
+          hills often below <strong>25°C</strong>.
+        </li>
+        <li>
+          Coastal isotherms run <strong>parallel to the coast</strong>; from
+          coast to interior, temperature <strong>increases</strong> instead of
+          decreasing north–south.
+        </li>
+        <li>
+          Mean daily minima rarely fall below <strong>26°C</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Pressure and Winds</h3>
+      <ul class="red-bullets">
+        <li>
+          Excessive heating and <strong>falling pressure</strong> in the northern
+          half of India.
+        </li>
+        <li>
+          ITCZ shifts northwards; by July, its axis is near <strong>25°N</strong>,
+          forming an elongated <span class="hl-green">monsoon trough</span>
+          from the <strong>Thar Desert</strong> to
+          <strong>Patna and Chotanagpur</strong>.
+        </li>
+        <li>
+          This trough attracts surface winds:
+          <ul class="red-bullets">
+            <li>South‑westerlies along the west coast and Bengal/Bangladesh coast.</li>
+            <li>Easterly or south‑easterly winds over north Bengal and Bihar.</li>
+          </ul>
+        </li>
+        <li>
+          These winds are actually <strong>“displaced” equatorial easterlies</strong>.
+          Their strong inflow by mid‑June heralds the rainy season.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Loo</h3>
+      <ul class="red-bullets">
+        <li>
+          <strong>Loo</strong> are dry, hot winds blowing in the heart of the
+          monsoon trough over <strong>northwestern plains</strong>.
+        </li>
+        <li>
+          Blow in the <strong>afternoon</strong>, often continuing till midnight.
+        </li>
+        <li>
+          Hot, dry and oppressive; prevalent from <strong>Punjab to Bihar</strong>,
+          strongest between <strong>Delhi and Patna</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Dust Storms</h3>
+      <ul class="red-bullets">
+        <li>
+          Very common in <strong>May</strong> in Punjab, Haryana, eastern
+          Rajasthan and Uttar Pradesh.
+        </li>
+        <li>
+          Often bring <strong>temporary relief</strong> from heat, with light
+          rain and cool breeze.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Local Storms</h3>
+      <p>
+        Moisture‑laden winds attracted towards the periphery of the trough meet
+        dry air masses → sudden contact produces local storms of great intensity,
+        with <strong>violent winds, torrential rain and hail</strong>.
+      </p>
+
+      <h3 class="heading-mini">Some Famous Local Storms of the Hot Weather Season</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Storm</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Mango Shower</td>
+          <td>
+            Pre‑monsoon showers towards end of summer in
+            <strong>Kerala and coastal Karnataka</strong>; help in early ripening
+            of <strong>mangoes</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Blossom Shower</td>
+          <td>
+            Showers which make <strong>coffee flowers blossom</strong> in Kerala
+            and nearby areas.
+          </td>
+        </tr>
+        <tr>
+          <td>Nor Westers</td>
+          <td>
+            Dreaded evening thunderstorms in <strong>Bengal and Assam</strong>;
+            local name <strong>“Kalbaisakhi”</strong> (calamity of month
+            Baisakh); useful for <strong>tea, jute and rice</strong> cultivation.
+            In Assam called <strong>“Bardoisila”</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Loo</td>
+          <td>
+            Hot, dry and oppressive winds over northern plains from
+            <strong>Punjab to Bihar</strong>, strongest between
+            <strong>Delhi and Patna</strong>.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE 6 – SOUTHWEST MONSOON SEASON -->
+  <section class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Season 3: The Southwest Monsoon Season</h1>
+
+      <h3 class="heading-mini">Onset Mechanism</h3>
+      <ol class="decimal-list">
+        <li>
+          Rapid temperature rise in <strong>May</strong> over NW plains
+          intensifies low pressure.
+        </li>
+        <li>
+          By early June, pressure is low enough to attract
+          <strong>SE trade winds</strong> from the southern hemisphere.
+        </li>
+        <li>
+          These winds cross the equator, enter the
+          <strong>Bay of Bengal</strong> and <strong>Arabian Sea</strong>.
+        </li>
+        <li>
+          Passing over <strong>equatorial warm currents</strong>, they pick up
+          abundant moisture.
+        </li>
+        <li>
+          After crossing the equator they are deflected and blow in a
+          <strong>south‑westerly direction</strong> → called the
+          <strong>southwest monsoon</strong>.
+        </li>
+      </ol>
+
+      <h3 class="heading-mini">Burst of Monsoon</h3>
+      <ul class="red-bullets">
+        <li>
+          Rain begins rather <strong>abruptly</strong>, with
+          <strong>violent thunder and lightning</strong>.
+        </li>
+        <li>
+          First rains sharply lower temperature by <strong>5–8°C</strong>
+          between mid‑June and mid‑July.
+        </li>
+        <li>
+          Sudden onset is popularly called the <strong>“burst”</strong> or
+          <strong>“break”</strong> of the monsoon.
+        </li>
+        <li>
+          Coastal Kerala, Karnataka, Goa and Maharashtra often get the burst in
+          the <strong>first week of June</strong>; interiors may receive it only
+          by <strong>first week of July</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Two Main Branches</h3>
+      <ul class="red-bullets">
+        <li><strong>The Arabian Sea branch</strong></li>
+        <li><strong>The Bay of Bengal branch</strong></li>
+      </ul>
+
+      <h2 class="heading-sub">Monsoon Winds of the Arabian Sea</h2>
+      <p>
+        The Arabian Sea branch splits into <strong>three sub‑branches</strong>.
+      </p>
+
+      <h3 class="heading-mini">Branch 1: Western Ghats Branch</h3>
+      <ul class="red-bullets">
+        <li>
+          Strikes the <strong>Western Ghats</strong> and is forced to ascend
+          900–1200 m.
+        </li>
+        <li>
+          Cooling causes <strong>very heavy rainfall</strong> (250–400 cm) on the
+          <strong>windward side</strong> – Sahyadris and Western Coastal Plain.
+        </li>
+        <li>
+          Descending on the leeward side, winds warm up and lose humidity →
+          <strong>rain‑shadow</strong> conditions east of the Ghats (e.g. Pune,
+          Bengaluru receive far less rain than Kozhikode, Mangalore).
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Branch 2: Narmada–Tapi Valley Branch</h3>
+      <ul class="red-bullets">
+        <li>Strikes the coast <strong>north of Mumbai</strong>.</li>
+        <li>
+          Moves along <strong>Narmada and Tapi valleys</strong>, giving rainfall
+          to large parts of <strong>central India</strong>.
+        </li>
+        <li>
+          <strong>Chotanagpur plateau</strong> receives about
+          <strong>15 cm</strong> from this branch.
+        </li>
+        <li>
+          Then enters the <strong>Ganga plains</strong> and merges with the Bay
+          of Bengal branch.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Branch 3: Saurashtra–Kachchh Branch</h3>
+      <ul class="red-bullets">
+        <li>
+          Strikes <strong>Saurashtra Peninsula</strong> and
+          <strong>Kachchh</strong>, then travels over
+          <strong>west Rajasthan</strong> along the <strong>Aravalis</strong>.
+        </li>
+        <li>
+          Produces only <strong>scanty rainfall</strong>.
+        </li>
+        <li>
+          In <strong>Punjab and Haryana</strong>, this branch joins the Bay of
+          Bengal branch; their combined flow gives rain to
+          <strong>western Himalayas</strong>.
+        </li>
+      </ul>
+
+      <h2 class="heading-sub">Monsoon Winds of the Bay of Bengal</h2>
+      <ul class="red-bullets">
+        <li>
+          Initially strikes the coast of <strong>Myanmar</strong> and parts of
+          <strong>SE Bangladesh</strong>.
+        </li>
+        <li>
+          <strong>Arakan Hills</strong> deflect much of the current towards the
+          Indian subcontinent.
+        </li>
+        <li>
+          Monsoon enters <strong>West Bengal and Bangladesh</strong> from the
+          <strong>south and southeast</strong>, not directly from SW.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Two Sub‑branches</h3>
+      <ul class="red-bullets">
+        <li>
+          One moves <strong>westward along the Ganga plains</strong>, as far as
+          the <strong>Punjab plains</strong>.
+        </li>
+        <li>
+          Another moves up the <strong>Brahmaputra valley</strong> towards the
+          north and northeast, giving widespread rains; a sub‑branch strikes
+          <strong>Garo and Khasi hills</strong> where
+          <strong>Mawsynram</strong> receives the highest average annual
+          rainfall in the world.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Why Tamil Nadu Coast Remains Dry in SW Monsoon</h3>
+      <ul class="red-bullets">
+        <li>
+          Coast lies <strong>parallel</strong> to the Bay of Bengal branch →
+          winds do not strike it directly.
+        </li>
+        <li>
+          Lies in the <strong>rain‑shadow</strong> of the Arabian Sea branch
+          behind the Western Ghats.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PAGE 7 – RETREATING MONSOON & TRADITIONAL SEASONS -->
+  <section class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Season 4: Season of Retreating Monsoon</h1>
+
+      <h3 class="heading-mini">Timeline of Retreat</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Time</th>
+          <th>Area</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>End of September</td>
+          <td>
+            SW monsoon weakens; low‑pressure trough shifts southward.
+          </td>
+        </tr>
+        <tr>
+          <td>First week of September</td>
+          <td>Withdrawal from <strong>western Rajasthan</strong>.</td>
+        </tr>
+        <tr>
+          <td>End of September</td>
+          <td>
+            Retreat completed from <strong>Rajasthan, Gujarat, western Ganga
+            plain, Central Highlands</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Beginning of October</td>
+          <td>
+            Low pressure remains over <strong>northern Bay of Bengal</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Early November</td>
+          <td>
+            Moves over <strong>Karnataka and Tamil Nadu</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Mid‑December</td>
+          <td>
+            Centre of low pressure removed from entire peninsula – retreat
+            completed.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-mini">Characteristics</h3>
+      <ul class="red-bullets">
+        <li>Clear skies and a <strong>rise in temperature</strong>.</li>
+        <li>
+          Land is still <strong>moist</strong>; high temperature + humidity cause
+          <span class="hl-pink">“October heat”</span>.
+        </li>
+        <li>
+          In second half of October, mercury falls rapidly in northern India.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Rainfall Pattern</h3>
+      <ul class="red-bullets">
+        <li><strong>North India</strong> → generally <strong>dry</strong>.</li>
+        <li>
+          <strong>Eastern Peninsula</strong> (especially Tamil Nadu and
+          adjoining areas) → experiences <strong>rain</strong>.
+        </li>
+        <li>
+          <strong>October–November</strong> are the rainiest months for the
+          eastern part of the peninsula.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Cyclonic Activity</h3>
+      <ul class="red-bullets">
+        <li>
+          Heavy rainfall associated with <strong>cyclonic depressions</strong>.
+        </li>
+        <li>
+          These originate in the <strong>Andaman Sea</strong> and cross the
+          eastern coast of southern peninsula as
+          <strong>tropical cyclones</strong>.
+        </li>
+        <li>
+          Thickly populated deltas of <strong>Godavari, Krishna and Kaveri</strong>
+          are frequent targets; some also strike
+          <strong>West Bengal, Bangladesh and Myanmar</strong>.
+        </li>
+        <li>
+          <strong>Coromandal coast</strong> receives much of its rainfall from
+          these systems.
+        </li>
+        <li>
+          Cyclones in the <strong>Arabian Sea</strong> are less frequent.
+        </li>
+      </ul>
+
+      <h2 class="heading-sub">📌 Traditional Indian Seasons</h2>
+      <p>
+        Based on long experience, Indian tradition recognises
+        <strong>six two‑monthly seasons</strong>:
+      </p>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Season</th>
+          <th>Indian Calendar Months</th>
+          <th>Gregorian Months</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Vasanta</td>
+          <td>Chaitra – Vaisakha</td>
+          <td>March – April</td>
+        </tr>
+        <tr>
+          <td>Grishma</td>
+          <td>Jyaistha – Asadha</td>
+          <td>May – June</td>
+        </tr>
+        <tr>
+          <td>Varsha</td>
+          <td>Sravana – Bhadra</td>
+          <td>July – August</td>
+        </tr>
+        <tr>
+          <td>Sharada</td>
+          <td>Asvina – Kartika</td>
+          <td>September – October</td>
+        </tr>
+        <tr>
+          <td>Hemanta</td>
+          <td>Margashirsa – Pausa</td>
+          <td>November – December</td>
+        </tr>
+        <tr>
+          <td>Shishira</td>
+          <td>Magha – Phalguna</td>
+          <td>January – February</td>
+        </tr>
+        </tbody>
+      </table>
+      <p>
+        This scheme is followed mainly in <strong>north and central India</strong>
+        and does not match well with south India, where seasonal variation is
+        limited.
+      </p>
+    </div>
+  </section>
+
+  <!-- PAGE 8 – DISTRIBUTION OF RAINFALL & MONSOONS + ECONOMY -->
+  <section id="rainfall" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Distribution of Rainfall in India</h1>
+
+      <p>
+        Average annual rainfall in India is about <strong>125 cm</strong>, but
+        with great spatial variation.
+      </p>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Category</th>
+          <th>Rainfall</th>
+          <th>Areas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>High Rainfall</td>
+          <td><strong>Above 200 cm</strong></td>
+          <td>
+            West coast, Western Ghats, sub‑Himalayan NE areas, hills of
+            Meghalaya. <strong>Khasi &amp; Jaintia hills</strong> exceed
+            <strong>1,000 cm</strong>; Brahmaputra valley receives slightly less
+            than 200 cm.
+          </td>
+        </tr>
+        <tr>
+          <td>Medium Rainfall</td>
+          <td><strong>100–200 cm</strong></td>
+          <td>
+            Southern Gujarat, east Tamil Nadu, NE peninsula (Odisha, Jharkhand,
+            Bihar, eastern MP), northern Ganga plain along sub‑Himalayas, Cachar
+            Valley, Manipur.
+          </td>
+        </tr>
+        <tr>
+          <td>Low Rainfall</td>
+          <td><strong>50–100 cm</strong></td>
+          <td>
+            Western UP, Delhi, Haryana, Punjab, J&amp;K, eastern Rajasthan,
+            Gujarat, much of Deccan Plateau.
+          </td>
+        </tr>
+        <tr>
+          <td>Inadequate Rainfall</td>
+          <td><strong>Below 50 cm</strong></td>
+          <td>
+            Parts of peninsula (Andhra Pradesh, Karnataka, Maharashtra),
+            <strong>Ladakh</strong> and most of <strong>western Rajasthan</strong>.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <p>
+        <strong>Snowfall</strong> in India is largely confined to the
+        <strong>Himalayan region</strong>.
+      </p>
+
+      <h2 class="heading-sub">📌 Monsoons and Economic Life in India</h2>
+      <ol class="decimal-list">
+        <li>
+          Monsoon is the <strong>axis</strong> around which India’s
+          <strong>agricultural cycle</strong> revolves. About
+          <strong>64% of the population</strong> depends on agriculture based
+          mainly on SW monsoon.
+        </li>
+        <li>
+          Except the Himalayas, temperatures in most parts remain above the
+          <strong>threshold for crop growth</strong> throughout the year.
+        </li>
+        <li>
+          Regional variations in monsoon climate permit cultivation of
+          <strong>various types of crops</strong>.
+        </li>
+        <li>
+          <strong>Variability of rainfall</strong> often results in
+          <strong>droughts or floods</strong> in different parts each year.
+        </li>
+        <li>
+          Agricultural prosperity depends on <strong>timely and well‑distributed
+          rainfall</strong>; monsoon failure seriously affects agriculture,
+          especially where irrigation is limited.
+        </li>
+        <li>
+          Sudden monsoon bursts can cause serious
+          <strong>soil erosion</strong> over large areas.
+        </li>
+        <li>
+          <strong>Winter rainfall</strong> from temperate cyclones is highly
+          beneficial for <strong>rabi crops</strong> in north India.
+        </li>
+        <li>
+          Climatic diversity is reflected in the diversity of
+          <strong>food habits, clothing and house types</strong> across the
+          country.
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PAGE 9 – GLOBAL WARMING -->
+  <section id="global-warming" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Global Warming</h1>
+
+      <h3 class="heading-mini">Background</h3>
+      <ul class="red-bullets">
+        <li>
+          Climate has changed in the past at both global and local scales,
+          though changes are often <strong>imperceptible</strong> during a human
+          lifetime.
+        </li>
+        <li>
+          Geological evidence indicates that large parts of the earth were once
+          under <strong>ice cover</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Causes</h3>
+      <ul class="red-bullets">
+        <li>Natural causes.</li>
+        <li>
+          Human activities such as <strong>large‑scale industrialisation</strong>
+          and emission of <strong>polluting gases</strong>.
+        </li>
+      </ul>
+
+      <h3 class="heading-mini">Greenhouse Gases</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Gas</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Carbon dioxide (CO₂)</td>
+          <td>
+            Produced mainly by burning <strong>fossil fuels</strong>;
+            increasing steadily and is a major concern.
+          </td>
+        </tr>
+        <tr>
+          <td>Methane</td>
+          <td>Present in smaller concentrations.</td>
+        </tr>
+        <tr>
+          <td>Chlorofluorocarbons (CFCs)</td>
+          <td>Present in smaller concentrations.</td>
+        </tr>
+        <tr>
+          <td>Nitrous oxide</td>
+          <td>Present in smaller concentrations.</td>
+        </tr>
+        </tbody>
+      </table>
+      <p>
+        These gases are better absorbers of
+        <strong>long‑wave radiation</strong> than CO₂ and are therefore more
+        effective in enhancing the <strong>greenhouse effect</strong>,
+        contributing to <strong>global warming</strong>. Continued warming could
+        melt polar ice caps and mountain glaciers, raising sea levels.
+      </p>
+
+      <h3 class="heading-mini">Consequences</h3>
+      <p>
+        Mean annual surface temperature has already increased in the last
+        <strong>150 years</strong>. By <strong>2100</strong>, global temperature
+        is projected to rise by about <strong>2°C</strong>.
+      </p>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Consequence</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Sea level rise</td>
+          <td>
+            Average rise of about <strong>48 cm</strong> by the end of the 21st
+            century due to melting of glaciers and sea‑ice.
+          </td>
+        </tr>
+        <tr>
+          <td>Flooding</td>
+          <td>Increase in incidence of annual flooding.</td>
+        </tr>
+        <tr>
+          <td>Diseases</td>
+          <td>
+            Favourable conditions for insect‑borne diseases such as
+            <strong>malaria</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Climatic boundaries</td>
+          <td>
+            Shift in climatic zones; some regions become wetter, others drier.
+          </td>
+        </tr>
+        <tr>
+          <td>Agriculture</td>
+          <td>Shifts in agricultural patterns and crop suitability.</td>
+        </tr>
+        <tr>
+          <td>Ecosystems</td>
+          <td>
+            Human populations and ecosystems would face major changes and
+            stresses.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE 10 – KEY TERMS, MAPS, COMPARISONS -->
+  <section class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Key Terms, Important Maps &amp; Comparisons</h1>
+
+      <h3 class="heading-mini">Key Terms to Remember</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>ITCZ</td>
+          <td>
+            <strong>Inter Tropical Convergence Zone</strong> – low‑pressure
+            zone at the equator where trade winds converge.
+          </td>
+        </tr>
+        <tr>
+          <td>Monsoon Trough</td>
+          <td>
+            Elongated low‑pressure area over north India in summer associated
+            with the ITCZ.
+          </td>
+        </tr>
+        <tr>
+          <td>Loo</td>
+          <td>
+            Hot, dry winds blowing over northern plains in summer.
+          </td>
+        </tr>
+        <tr>
+          <td>Kalbaisakhi</td>
+          <td>Local name for Nor‑westers in Bengal.</td>
+        </tr>
+        <tr>
+          <td>Bardoisila</td>
+          <td>Local name for thunderstorms in Assam.</td>
+        </tr>
+        <tr>
+          <td>Mango Shower</td>
+          <td>
+            Pre‑monsoon showers in Kerala and Karnataka that help mango
+            ripening.
+          </td>
+        </tr>
+        <tr>
+          <td>Blossom Shower</td>
+          <td>
+            Showers that help coffee blossoms in Kerala and adjoining areas.
+          </td>
+        </tr>
+        <tr>
+          <td>October Heat</td>
+          <td>
+            Oppressive weather of high temperature and humidity during
+            retreating monsoon.
+          </td>
+        </tr>
+        <tr>
+          <td>Rain Shadow</td>
+          <td>
+            Area on leeward side of mountains receiving less rainfall.
+          </td>
+        </tr>
+        <tr>
+          <td>El‑Niño</td>
+          <td>
+            Warm current off Peru affecting global climate including monsoons.
+          </td>
+        </tr>
+        <tr>
+          <td>Southern Oscillation</td>
+          <td>
+            See‑saw in air pressure between <strong>Tahiti</strong> and
+            <strong>Darwin</strong>.
+          </td>
+        </tr>
+        <tr>
+          <td>Coriolis Force</td>
+          <td>
+            Apparent force due to earth’s rotation that deflects moving bodies,
+            including winds.
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <h3 class="heading-mini">Important Maps to Remember</h3>
+      <p>
+        The following three maps have been included and lightly colour‑washed
+        using background gradients to aid memory while keeping the notes vintage
+        and elegant. Replace the <code>src</code> values with your actual image
+        filenames if needed.
+      </p>
+
+      <div style="margin-top: 0.8rem; display: flex; flex-direction: column; gap: 1rem;">
+        <div class="hand-box" style="background: linear-gradient(135deg,#fef9c3,#d1fae5,#e0f2fe);">
+          <p style="font-family: 'Patrick Hand', cursive; font-size: 1.05rem; color: var(--ink-red); margin: 0;">
+            Figure 4.2 – India: Normal Dates of Onset of Southwest Monsoon
+          </p>
+          <img
+            class="map-img"
+            src="map-onset-monsoon.png"
+            alt="India map showing normal dates of onset of the southwest monsoon"
+          />
+          <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+            Note: Andaman &amp; Nicobar around <strong>25 May</strong>,
+            Kerala <strong>1 June</strong>, Mumbai &amp; Kolkata around
+            <strong>10–13 June</strong>, and the whole country by
+            <strong>mid‑July</strong>.
+          </p>
+        </div>
+
+        <div class="hand-box" style="background: linear-gradient(135deg,#e0f2fe,#dcfce7,#fef9c3);">
+          <p style="font-family: 'Patrick Hand', cursive; font-size: 1.05rem; color: var(--ink-red); margin: 0;">
+            Figure 4.3 – India: Seasonal Rainfall (June–September)
+          </p>
+          <img
+            class="map-img"
+            src="map-seasonal-rainfall.png"
+            alt="India map showing seasonal rainfall June-September"
+          />
+          <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+            Darkest tones mark areas of <strong>above 400 cm</strong> (windward
+            Western Ghats &amp; NE India), while the lightest shade marks
+            <strong>0–20 cm</strong> (western Rajasthan &amp; NW regions).
+          </p>
+        </div>
+
+        <div class="hand-box" style="background: linear-gradient(135deg,#dcfce7,#e0f2fe,#fef9c3);">
+          <p style="font-family: 'Patrick Hand', cursive; font-size: 1.05rem; color: var(--ink-red); margin: 0;">
+            Figure 4.4 – India: Annual Rainfall
+          </p>
+          <img
+            class="map-img"
+            src="map-annual-rainfall.png"
+            alt="India map showing annual rainfall distribution"
+          />
+          <p style="font-size: 0.88rem; margin-top: 0.4rem;">
+            Compare belts of <strong>more than 200 cm</strong> (west coast, NE
+            India) with areas of <strong>less than 50 cm</strong> (western
+            Rajasthan, Ladakh).
+          </p>
+        </div>
+      </div>
+
+      <h3 class="heading-mini">Important Comparisons for Exams</h3>
+      <table class="table-hand">
+        <thead>
+        <tr>
+          <th>Comparison</th>
+          <th>Area 1</th>
+          <th>Area 2</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Temperature</td>
+          <td>
+            <strong>Drass</strong>: about <strong>−45°C</strong> in winter
+          </td>
+          <td>
+            <strong>Chennai</strong>: <strong>20–22°C</strong> on the same winter night
+          </td>
+        </tr>
+        <tr>
+          <td>Rainfall</td>
+          <td><strong>Mawsynram</strong>: <strong>1,080+ cm/year</strong></td>
+          <td><strong>Jaisalmer</strong>: about <strong>9 cm/year</strong></td>
+        </tr>
+        <tr>
+          <td>Altitude effect</td>
+          <td><strong>Agra</strong> (January): <strong>16°C</strong></td>
+          <td><strong>Darjiling</strong> (January): <strong>4°C</strong> (same latitude)</td>
+        </tr>
+        <tr>
+          <td>Diurnal range</td>
+          <td><strong>Kerala</strong>: about <strong>7–8°C</strong></td>
+          <td><strong>Thar Desert</strong>: <strong>30–35°C</strong></td>
+        </tr>
+        <tr>
+          <td>Monsoon timing</td>
+          <td><strong>Most of India</strong>: main rains June–September</td>
+          <td><strong>Tamil Nadu</strong>: main rains October–November</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PAGE 11 – EXAM CHEAT SHEET / Q&A -->
+  <section id="cheatsheet" class="page">
+    <div class="page-inner">
+      <h1 class="heading-main">📌 Exam Cheat Sheet – Key Questions &amp; Answers</h1>
+
+      <p>
+        A compact set of exam‑style questions with ready answers based on the
+        complete notes above. Use this page for final revision.
+      </p>
+
+      <!-- Q1 -->
+      <details class="hand-box cheat">
+        <summary>Q1. Differentiate between weather and climate.</summary>
+        <div style="margin-top: 0.4rem;">
+          <ul class="red-bullets">
+            <li>
+              <strong>Weather</strong> is the momentary state of the atmosphere
+              at a place – it can change within a day or a week. It is described
+              by elements like temperature, pressure, wind, humidity and
+              precipitation.
+            </li>
+            <li>
+              <strong>Climate</strong> is the average of weather conditions over
+              a long period of time (normally 30–50 years or more). Changes in
+              climate are noticed only after several decades.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="hand-box cheat">
+        <summary>Q2. Explain the unity and diversity of the monsoon climate of India.</summary>
+        <div style="margin-top: 0.4rem;">
+          <p>
+            The monsoon regime emphasises the <strong>unity of India</strong>
+            with the rest of South and Southeast Asia: most of the country
+            experiences rainfall from the seasonal reversal of winds known as
+            the <strong>monsoon</strong>; the rhythm of advancing and retreating
+            monsoon is broadly similar everywhere.
+          </p>
+          <p>
+            At the same time, there is great <strong>diversity</strong> which
+            appears as different <span class="hl-green">sub‑types</span> of
+            monsoon climate. These are expressed in:
+          </p>
+          <ul class="red-bullets">
+            <li>Patterns of winds</li>
+            <li>Temperature and rainfall amounts</li>
+            <li>Rhythm and duration of seasons</li>
+            <li>Degree of wetness or dryness</li>
+          </ul>
+          <p>
+            Extreme examples include temperatures from
+            <strong>55°C in western Rajasthan</strong> to
+            <strong>−45°C around Leh</strong>, and rainfall from
+            <strong>over 1,080 cm at Mawsynram</strong> to
+            <strong>about 9 cm at Jaisalmer</strong>.
+          </p>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="hand-box cheat">
+        <summary>Q3. List the major factors determining the climate of India.</summary>
+        <div style="margin-top: 0.4rem;">
+          <ol class="decimal-list">
+            <li>
+              <strong>Latitude</strong> – division by the Tropic of Cancer into
+              tropical south and sub‑tropical/temperate north.
+            </li>
+            <li>
+              <strong>The Himalayan Mountains</strong> – act as a climatic
+              divide, blocking cold northern winds and trapping monsoon winds.
+            </li>
+            <li>
+              <strong>Distribution of land and water</strong> – contrast between
+              vast landmass and surrounding Indian Ocean causes differential
+              heating, pressure belts and reversal of winds.
+            </li>
+            <li>
+              <strong>Distance from the sea</strong> – coastal areas have equable
+              climate; interiors show extremes.
+            </li>
+            <li>
+              <strong>Altitude</strong> – temperature decreases with height;
+              hence mountains are cooler than plains.
+            </li>
+            <li>
+              <strong>Relief</strong> – controls temperature, pressure, winds and
+              rainfall (e.g. windward vs leeward sides of Western Ghats).
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="hand-box cheat">
+        <summary>Q4. What is the Inter Tropical Convergence Zone (ITCZ)? How is it related to the Indian monsoon?</summary>
+        <div style="margin-top: 0.4rem;">
+          <p>
+            The <strong>ITCZ</strong> is a low‑pressure zone located near the
+            equator where the trade winds from both hemispheres converge and air
+            tends to ascend.
+          </p>
+          <ul class="red-bullets">
+            <li>
+              In <strong>July</strong>, it shifts to about
+              <strong>20°–25°N</strong> over the Gangetic plain, forming the
+              <span class="hl-green">monsoon trough</span>.
+            </li>
+            <li>
+              Its northward shift encourages a <strong>thermal low</strong> over
+              north and northwest India and allows the southeast trades of the
+              southern hemisphere to cross the equator, get deflected, and blow
+              as the <strong>southwest monsoon</strong>.
+            </li>
+            <li>
+              In <strong>winter</strong> the ITCZ moves southward and winds
+              reverse to become <strong>northeast monsoons</strong>.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="hand-box cheat">
+        <summary>Q5. What is El‑Niño? How does it affect the Indian monsoon?</summary>
+        <div style="margin-top: 0.4rem;">
+          <p>
+            <strong>El‑Niño</strong> is a complex weather system appearing once
+            every <strong>3–7 years</strong> when a tongue of warm water spreads
+            along the coast of <strong>Peru</strong> in the eastern Pacific,
+            temporarily replacing the cold Peruvian (Humboldt) current.
+          </p>
+          <ul class="red-bullets">
+            <li>Raises sea‑surface temperature by about 10°C off Peru.</li>
+            <li>
+              Distorts equatorial atmospheric circulation, affects evaporation
+              and reduces plankton.
+            </li>
+            <li>
+              Causes droughts, floods and weather extremes in many parts of the
+              world, including irregularities in the
+              <strong>Indian southwest monsoon</strong>.
+            </li>
+            <li>
+              Example: during <strong>1990–91</strong> El‑Niño, onset of the SW
+              monsoon over many parts of India was
+              <span class="hl-pink">delayed by 5–12 days</span>.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="hand-box cheat">
+        <summary>Q6. What is meant by “break in the monsoon”?</summary>
+        <div style="margin-top: 0.4rem;">
+          <p>
+            During the southwest monsoon season, if after several days of rain
+            there is a period of <strong>one or more weeks with little or no
+            rain</strong>, it is called a
+            <span class="hl-pink">break in the monsoon</span>. In northern India
+            it occurs when rain‑bearing storms are absent along the monsoon
+            trough/ITCZ, and on the west coast when winds blow parallel to the
+            coast.
+          </p>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="hand-box cheat">
+        <summary>Q7. Name and briefly describe the four seasons recognised by Indian meteorologists.</summary>
+        <div style="margin-top: 0.4rem;">
+          <ol class="decimal-list">
+            <li>
+              <strong>Cold Weather Season</strong> – mid‑November to February;
+              dominated by cool, dry conditions, weak high pressure over northern
+              plains and occasional western disturbances.
+            </li>
+            <li>
+              <strong>Hot Weather Season</strong> – March to May/early June;
+              increasing temperatures, formation of low pressure over northwest
+              India, local storms (Nor‑westers, Mango showers, Loo, etc.).
+            </li>
+            <li>
+              <strong>Southwest Monsoon Season</strong> – June to September;
+              onset and widespread rainfall from the Arabian Sea and Bay of
+              Bengal branches of SW monsoon.
+            </li>
+            <li>
+              <strong>Retreating Monsoon Season</strong> – October to December;
+              withdrawal of SW monsoon, clear skies, “October heat”, and cyclonic
+              rainfall over eastern and southeastern coasts.
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="hand-box cheat">
+        <summary>Q8. What are the six traditional Indian seasons?</summary>
+        <div style="margin-top: 0.4rem;">
+          <table class="table-hand">
+            <thead>
+            <tr>
+              <th>Season</th>
+              <th>Indian Months</th>
+              <th>Gregorian Months</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Vasanta</td>
+              <td>Chaitra – Vaisakha</td>
+              <td>March – April</td>
+            </tr>
+            <tr>
+              <td>Grishma</td>
+              <td>Jyaistha – Asadha</td>
+              <td>May – June</td>
+            </tr>
+            <tr>
+              <td>Varsha</td>
+              <td>Sravana – Bhadra</td>
+              <td>July – August</td>
+            </tr>
+            <tr>
+              <td>Sharada</td>
+              <td>Asvina – Kartika</td>
+              <td>September – October</td>
+            </tr>
+            <tr>
+              <td>Hemanta</td>
+              <td>Margashirsa – Pausa</td>
+              <td>November – December</td>
+            </tr>
+            <tr>
+              <td>Shishira</td>
+              <td>Magha – Phalguna</td>
+              <td>January – February</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="hand-box cheat">
+        <summary>Q9. Why is the Tamil Nadu coast generally dry during the southwest monsoon?</summary>
+        <div style="margin-top: 0.4rem;">
+          <ul class="red-bullets">
+            <li>
+              The Tamil Nadu coast lies <strong>parallel</strong> to the Bay of
+              Bengal branch of the southwest monsoon, so winds do not strike it
+              directly.
+            </li>
+            <li>
+              It also lies in the <span class="hl-green">rain‑shadow area</span>
+              of the Western Ghats with respect to the Arabian Sea branch.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="hand-box cheat">
+        <summary>Q10. Explain briefly how monsoons affect the economic life of India.</summary>
+        <div style="margin-top: 0.4rem;">
+          <ul class="red-bullets">
+            <li>
+              The southwest monsoon is the <strong>axis of the agricultural
+              cycle</strong>; about <strong>64% of India’s people</strong>
+              depend directly or indirectly on agriculture.
+            </li>
+            <li>
+              Temperature is high enough almost everywhere to grow crops
+              throughout the year; it is mainly the
+              <strong>amount, distribution and reliability of rainfall</strong>
+              that control success or failure of crops.
+            </li>
+            <li>
+              Regional variations in monsoon climate permit cultivation of a
+              <span class="hl-green">wide variety of crops</span>.
+            </li>
+            <li>
+              Variability leads to <strong>droughts and floods</strong>,
+              affecting food security and economy.
+            </li>
+            <li>
+              Sudden heavy monsoon bursts can cause <strong>soil erosion</strong>.
+            </li>
+            <li>
+              <strong>Winter rainfall</strong> from western disturbances is vital
+              for <strong>rabi crops</strong> in north India.
+            </li>
+            <li>
+              Climatic diversity is reflected in the diversity of
+              <strong>food, clothing and house types</strong> across India.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="hand-box cheat">
+        <summary>Q11. What is global warming? Mention some of its likely consequences.</summary>
+        <div style="margin-top: 0.4rem;">
+          <p>
+            <strong>Global warming</strong> is the long‑term increase in the
+            earth’s mean surface temperature due to enhanced
+            <span class="hl-green">greenhouse effect</span>, largely caused by
+            human‑produced greenhouse gases such as CO₂, methane, CFCs and
+            nitrous oxide.
+          </p>
+          <table class="table-hand">
+            <thead>
+            <tr>
+              <th>Consequence</th>
+              <th>Details</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Sea level rise</td>
+              <td>Average rise of about 48 cm by the end of 21st century.</td>
+            </tr>
+            <tr>
+              <td>Flooding</td>
+              <td>Increase in frequency and extent of annual floods.</td>
+            </tr>
+            <tr>
+              <td>Diseases</td>
+              <td>
+                Expansion of insect‑borne diseases such as malaria into new
+                areas.
+              </td>
+            </tr>
+            <tr>
+              <td>Climatic boundaries</td>
+              <td>Shift of climatic zones; some regions become wetter, others drier.</td>
+            </tr>
+            <tr>
+              <td>Agriculture</td>
+              <td>Shifts in cropping patterns and agricultural productivity.</td>
+            </tr>
+            <tr>
+              <td>Ecosystems &amp; people</td>
+              <td>
+                Stress on ecosystems and human populations due to temperature
+                rise and extreme events.
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <p style="margin-top: 2.5rem; text-align: center; color: var(--muted-gray); font-size: 0.98rem;">
+        ~ End of Notes ~
+      </p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
